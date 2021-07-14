@@ -1,8 +1,18 @@
 # Linux Privilege Escalation
 
+<<<<<<< HEAD
 If you want to **know** about my **latest modifications**/**additions** or you have **any suggestion for HackTricks or PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/) **\*\*\[**PEASS & HackTricks telegram group here**\]\(**[https://t.me/peass](https://t.me/peass)**\), or** follow me on Twitter ****[**🐦**](https://emojipedia.org/bird/)**\[**@carlospolopm**\]\(**[https://twitter.com/carlospolopm](https://twitter.com/carlospolopm)**\)**.  
 **If you want to** share some tricks with the community **you can also submit** pull requests **to \[**[https://github.com/carlospolop/hacktricks\]\(https://github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks]%28https://github.com/carlospolop/hacktricks)\]%28[https://github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks)\) **that will be reflected in this book.  
 Don't forget to** give ⭐ on the github to motivate me to continue developing this book.
+=======
+{% hint style="danger" %}
+Do you use **Hacktricks every day**? Did you find the book **very** **useful**? Would you like to **receive extra help** with cybersecurity questions? Would you like to **find more and higher quality content on Hacktricks**?  
+[**Support Hacktricks through github sponsors**](https://github.com/sponsors/carlospolop) **so we can dedicate more time to it and also get access to the Hacktricks private group where you will get the help you need and much more!**
+{% endhint %}
+
+If you want to know about my **latest modifications**/**additions** or you have **any suggestion for HackTricks** or **PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/)[**telegram group**](https://t.me/peass), or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/carlospolopm)**.**  
+If you want to **share some tricks with the community** you can also submit **pull requests** to [**https://github.com/carlospolop/hacktricks**](https://github.com/carlospolop/hacktricks) that will be reflected in this book and don't forget to **give ⭐** on **github** to **motivate** **me** to continue developing this book.
+>>>>>>> upstream/master
 
 ## System Information
 
@@ -282,6 +292,22 @@ Typically, `/dev/mem` is only readable by **root** and **kmem** group.
 strings /dev/mem -n10 | grep -i PASS
 ```
 
+#### osxpmem
+
+In order to dump the memory in a MacOS machine you can use [**osxpmem**](https://github.com/google/rekall/releases/download/v1.5.1/osxpmem-2.1.post4.zip).
+
+```bash
+sudo osxpmem.app/osxpmem --format raw -o /tmp/dump_mem
+```
+
+If you find this error: `osxpmem.app/MacPmem.kext failed to load - (libkern/kext) authentication failure (file ownership/permissions); check the system/kernel logs for errors or try kextutil(8)` You can fix it doing:
+
+```bash
+sudo cp -r osxpmem.app/MacPmem.kext "/tmp/"
+sudo kextutil "/tmp/MacPmem.kext"
+sudo osxpmem.app/osxpmem --format raw -o /tmp/dump_mem
+```
+
 #### Tools
 
 To dump a process memory you could use:
@@ -482,7 +508,7 @@ Sockets can be configured using `.socket` files.
 
 ### Writable .socket files
 
-If you find a **writable** `.socket` file you can **add** at the begging of the `[Socket]` section something like: `ExecStartPre=/home/kali/sys/backdoor` and the backdoor will be executed before the socket is created. Therefore, you will **probably need to wait until the machine is rebooted.**  
+If you find a **writable** `.socket` file you can **add** at the beginning of the `[Socket]` section something like: `ExecStartPre=/home/kali/sys/backdoor` and the backdoor will be executed before the socket is created. Therefore, you will **probably need to wait until the machine is rebooted.**  
 _Note that the system must be using that socket file configuration or the backdoor won't be executed_
 
 ### Writable sockets
@@ -586,7 +612,7 @@ D-BUS is an **inter-process communication \(IPC\) system**, providing a simple y
 
 D-BUS, as a full-featured IPC and object system, has several intended uses. First, D-BUS can perform basic application IPC, allowing one process to shuttle data to another—think **UNIX domain sockets on steroids**. Second, D-BUS can facilitate sending events, or signals, through the system, allowing different components in the system to communicate and ultimately to integrate better. For example, a Bluetooth dæmon can send an incoming call signal that your music player can intercept, muting the volume until the call ends. Finally, D-BUS implements a remote object system, letting one application request services and invoke methods from a different object—think CORBA without the complications. _\*\*_\(From [here](https://www.linuxjournal.com/article/7744)\).
 
-D-Bus use an **allow/deny model**, where each message \(method call, signal emission, etc.\) can be **allowed or denied** according to the sum of all policy rules which match it. Each or rule in the policy should have the `own`, `send_destination` or `receive_sender` attribute set.
+D-Bus uses an **allow/deny model**, where each message \(method call, signal emission, etc.\) can be **allowed or denied** according to the sum of all policy rules which match it. Each or rule in the policy should have the `own`, `send_destination` or `receive_sender` attribute set.
 
 Part of the policy of `/etc/dbus-1/system.d/wpa_supplicant.conf`:
 

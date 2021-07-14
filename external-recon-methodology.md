@@ -1,5 +1,13 @@
 # External Recon Methodology
 
+{% hint style="danger" %}
+Do you use **Hacktricks every day**? Did you find the book **very** **useful**? Would you like to **receive extra help** with cybersecurity questions? Would you like to **find more and higher quality content on Hacktricks**?  
+[**Support Hacktricks through github sponsors**](https://github.com/sponsors/carlospolop) **so we can dedicate more time to it and also get access to the Hacktricks private group where you will get the help you need and much more!**
+{% endhint %}
+
+If you want to know about my **latest modifications**/**additions** or you have **any suggestion for HackTricks** or **PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/)[**telegram group**](https://t.me/peass), or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/carlospolopm)**.**  
+If you want to **share some tricks with the community** you can also submit **pull requests** to [**https://github.com/carlospolop/hacktricks**](https://github.com/carlospolop/hacktricks) that will be reflected in this book and don't forget to **give ⭐** on **github** to **motivate** **me** to continue developing this book.
+
 ## Assets discoveries
 
 > So you were said that everything belonging to some company is inside the scope, and you want to figure out what this company actually owns.
@@ -201,19 +209,24 @@ For this action you will need some common subdomains lists like:
 * [https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056](https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056)
 * [https://github.com/pentester-io/commonspeak](https://github.com/pentester-io/commonspeak)
 
-For **massdns** you will need to pass as argument the file will all the **possible well formed subdomains** you want to bruteforce:
-
-```bash
-sed 's/$/.domain.com/' subdomains.txt > bf-subdomains.txt
-./massdns -r resolvers.txt -w /tmp/results.txt bf-subdomains.txt
-grep -E "tesla.com. [0-9]+ IN A .+" /tmp/results.txt
-```
-
 {% code title="Gobuster bruteforcing dns" %}
 ```bash
 gobuster dns -d mysite.com -t 50 -w subdomains.txt
 ```
 {% endcode %}
+
+For **massdns** you will need to pass as argument the file will all the **possible well formed subdomains** you want to bruteforce and list of DNS resolvers to use. Some projects that use massdns as base and provides better results by checking massdns results are [**shuffledns**](https://github.com/projectdiscovery/shuffledns) **and** [**puredns**](https://github.com/d3mondev/puredns)**.**
+
+```bash
+sed 's/$/.domain.com/' subdomains.txt > bf-subdomains.txt
+./massdns -r resolvers.txt -w /tmp/results.txt bf-subdomains.txt
+grep -E "tesla.com. [0-9]+ IN A .+" /tmp/results.txt
+
+shuffledns -d example.com -list example-subdomains.txt -r resolvers.txt
+puredns bruteforce all.txt domain.com
+```
+
+Note how these tools require a **list of IPs of public DNSs**. If these public DNSs are malfunctioning \(DNS poisoning for example\) you will get bad results. In order to generate a list of trusted DNS resolvers you can download the resolvers from [https://public-dns.info/nameservers-all.txt](https://public-dns.info/nameservers-all.txt) and use [**dnsvalidator**](https://github.com/vortexau/dnsvalidator) to filter them.
 
 ### VHosts
 
@@ -314,7 +327,6 @@ Now that we have built the list of assets of our scope it's time to search for s
 * [https://github.com/eth0izzle/shhgit](https://github.com/eth0izzle/shhgit)
 * [https://github.com/techgaun/github-dorks](https://github.com/techgaun/github-dorks)
 * [https://github.com/michenriksen/gitrob](https://github.com/michenriksen/gitrob)
-* [https://github.com/eth0izzle/shhgit](https://github.com/eth0izzle/shhgit)
 * [https://github.com/anshumanbh/git-all-secrets](https://github.com/anshumanbh/git-all-secrets)
 * [https://github.com/awslabs/git-secrets](https://github.com/awslabs/git-secrets)
 * [https://github.com/kootenpv/gittyleaks](https://github.com/kootenpv/gittyleaks)
