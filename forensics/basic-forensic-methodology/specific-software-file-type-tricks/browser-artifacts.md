@@ -1,6 +1,6 @@
 # Browser Artifacts
 
-## Browsers Artefacts <a id="3def"></a>
+### Browsers Artefacts <a id="3def"></a>
 
 When we talk about browser artefacts we talk about, navigation history, bookmarks, list of downloaded files, cache data…etc.
 
@@ -22,30 +22,33 @@ Let us take a look at the most common artefacts stored by browsers.
 * **Form Data :** Anything typed inside forms is often times stored by the browser, so the next time the user enters something inside of a form the browser can suggest previously entered data.
 * **Thumbnails :** Self Explanatory.
 
-## Firefox
+### Firefox
 
 Firefox use to create the profiles folder in ~/_**.mozilla/firefox/**_ \(Linux\) **\*\*or in \_**%userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles\* _\(Windows\)**.**  
 Inside this folder, the file **profiles.ini** should appear with the name\(s\) of the used profile\(s\).  
-Each profile has a "**Path**" variable with the name of the folder where it's data is going to be stored. The folder should be **present in the same directory where the** **profiles.ini**\_ \*exist_. If it isn't, then, probably it was deleted.
+Each profile has a "**Path**" variable with the name of the folder where it's data is going to be stored. The folder should be **present in the same directory where the** **profiles.ini**\_ \*exist\_. If it isn't, then, probably it was deleted.
 
 Inside the folder **of each profile** \(_~/.mozilla/firefox/&lt;ProfileName&gt;/_\) path you should be able to find the following interesting files:
 
-<<<<<<< HEAD:forensics/basic-forensics-esp/browser-artifacts.md
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:forensics/basic-forensics-esp/browser-artifacts.md
+
+* _**places.sqlite**_ : History \(moz_\_\_places\), bookmarks \(moz\_bookmarks\), and downloads \(moz_\_\_annos\). In windows the tool_ [_BrowsingHistoryView_](https://www.nirsoft.net/utils/browsing_history_view.html) _can be used to read the history inside_ **places.sqlite**\_.
+  * **Query to dump history: `select datetime(lastvisitdate/1000000,'unixepoch') as visit_date, url, title, visit_count, visit_type FROM moz_places,moz_historyvisits WHERE moz_places.id = moz_historyvisits.place_id`**
 * _**places.sqlite**_ : History \(moz_\_\_places\), bookmarks \(moz\_bookmarks\), and downloads \(moz_\__annos\). In windows the tool_ [_BrowsingHistoryView_](https://www.nirsoft.net/utils/browsing_history_view.html) _can be used to read the history inside_ **places.sqlite**\_.
-  * Query to dump history: `select datetime(lastvisitdate/1000000,'unixepoch') as visit_date, url, title, visit_count, visit_type FROM moz_places,moz_historyvisits WHERE moz_places.id = moz_historyvisits.place_id` 
-=======
-* _**places.sqlite**_ : History \(moz_\__places\), bookmarks \(moz\_bookmarks\), and downloads \(moz_\__annos\). In windows the tool [BrowsingHistoryView](https://www.nirsoft.net/utils/browsing_history_view.html) can be used to read the history inside _**places.sqlite**_.
   * Query to dump history: `select datetime(lastvisitdate/1000000,'unixepoch') as visit_date, url, title, visit_count, visit_type FROM moz_places,moz_historyvisits WHERE moz_places.id = moz_historyvisits.place_id;` 
->>>>>>> upstream/master:forensics/basic-forensic-methodology/specific-software-file-type-tricks/browser-artifacts.md
-    * Note that the link type is a number that indicates:
-      * 1: User followed a link
-      * 2: User wrote the URL
-      * 3: User used a favorite
-      * 4: Loaded from Iframe
-      * 5: Accessed via HTTP redirect 301
-      * 6: Accessed via HTTP redirect 302
-      * 7: Downloaded file
-      * 8: User followed a link inside an Iframe
+
+    > > > > > > > upstream/master:forensics/basic-forensic-methodology/specific-software-file-type-tricks/browser-artifacts.md
+    > > > > > > >
+    > > > > > > > * Note that the link type is a number that indicates:
+    > > > > > > >   * 1: User followed a link
+    > > > > > > >   * 2: User wrote the URL
+    > > > > > > >   * 3: User used a favorite
+    > > > > > > >   * 4: Loaded from Iframe
+    > > > > > > >   * 5: Accessed via HTTP redirect 301
+    > > > > > > >   * 6: Accessed via HTTP redirect 302
+    > > > > > > >   * 7: Downloaded file
+    > > > > > > >   * 8: User followed a link inside an Iframe
+
   * Query to dump downloads: `SELECT datetime(lastModified/1000000,'unixepoch') AS down_date, content as File, url as URL FROM moz_places, moz_annos WHERE moz_places.id = moz_annos.place_id;`
   * 
 * _**bookmarkbackups/**_ : Bookmarks backups
@@ -53,7 +56,7 @@ Inside the folder **of each profile** \(_~/.mozilla/firefox/&lt;ProfileName&gt;/
 * _**handlers.json**_ : Protocol handlers \(like, which app is going to handle _mailto://_ protocol\)
 * _**persdict.dat**_ : Words added to the dictionary
 * _**addons.json**_ and _**extensions.sqlite**_ : Installed addons and extensions
-* _**cookies.sqlite**_ : Contains **cookies.** [**MZCookiesView**](https://www.nirsoft.net/utils/mzcv.html) _\*\*_can be used in Windows to inspect this file.
+* _**cookies.sqlite**_ : Contains **cookies.** [**MZCookiesView**](https://www.nirsoft.net/utils/mzcv.html) \_\*\*\_can be used in Windows to inspect this file.
 * _**cache2/entries**_ or _**startupCache**_ : Cache data \(~350MB\). Tricks like **data carving** can also be used to obtain the files saved in the cache. [MozillaCacheView](https://www.nirsoft.net/utils/mozilla_cache_viewer.html) can be used to see the **files saved in the cache**.
 
   Information that can be obtained:
@@ -85,7 +88,7 @@ done < $passfile
 
 ![](../../../.gitbook/assets/image%20%2873%29.png)
 
-## Google Chrome
+### Google Chrome
 
 Google Chrome creates the profile inside the home of the user _**~/.config/google-chrome/**_ \(Linux\) or in _**C:\Users\XXX\AppData\Local\Google\Chrome\User Data\**_ \(Windows\).  
 Most of the information will be saved inside the _**Default/**_ or _**ChromeDefaultData/**_ folders inside the paths indicated before. Inside here you can find the following interesting files:
@@ -109,11 +112,11 @@ Most of the information will be saved inside the _**Default/**_ or _**ChromeDefa
 * _**Extensions/**_ : Extensions and addons folder
 * **Thumbnails** : Thumbnails
 
-## **SQLite DB Data Recovery**
+### **SQLite DB Data Recovery**
 
 As you can observe in the previous sections, both Chrome and Firefox use **SQLite** databases to store the data. It's possible to **recover deleted entries using the tool** [**sqlparse**](https://github.com/padfoot999/sqlparse) **or** [**sqlparse\_gui**](https://github.com/mdegrazia/SQLite-Deleted-Records-Parser/releases).
 
-## **Internet Explorer 11**
+### **Internet Explorer 11**
 
 Internet Explorer stores **data** and **metadata** in different locations. The metadata will allow to find the data.
 
@@ -129,11 +132,11 @@ Inside this table you can find in which other tables or containers each part of 
 
 **Note that this table indicate also metadadata of the cache of other Microsoft tools also \(e.g. skype\)**
 
-### Cache
+#### Cache
 
 You can use the tool [IECacheView](https://www.nirsoft.net/utils/ie_cache_viewer.html) to inspect the cache. You need to indicate the folder where you have extracted the cache date.
 
-#### Metadata
+**Metadata**
 
 The metadata information about the cache stores:
 
@@ -146,17 +149,17 @@ The metadata information about the cache stores:
 * ModifiedTime: Last webpage version
 * ExpiryTime: Time when  the cache will expire
 
-#### Files
+**Files**
 
 The cache information can be found in _**%userprofile%\Appdata\Local\Microsoft\Windows\Temporary Internet Files\Content.IE5**_ and _**%userprofile%\Appdata\Local\Microsoft\Windows\Temporary Internet Files\Content.IE5\low**_
 
 The information inside these folders is a **snapshot of what the user was seeing**. The caches has a size of **250 MB** and the timestamps indicate when the page was visited \(first time, creation date of the NTFS, last time, modification time of the NTFS\).
 
-### Cookies
+#### Cookies
 
 You can use the tool [IECookiesView](https://www.nirsoft.net/utils/iecookies.html) to inspect the cookies. You need to indicate the folder where you have extracted the cookies.
 
-#### **Metadata**
+**Metadata**
 
 The metadata information about the cookies stores:
 
@@ -168,15 +171,15 @@ The metadata information about the cookies stores:
 * AccessedTime: Last time the cookie was accesed
 * ExpiryTime: Time of expiration of the cookie
 
-#### Files
+**Files**
 
 The cookies data can be found in _**%userprofile%\Appdata\Roaming\Microsoft\Windows\Cookies**_ and _**%userprofile%\Appdata\Roaming\Microsoft\Windows\Cookies\low**_
 
 Session cookies will reside in memory and persistent cookie in the disk.
 
-### Downloads
+#### Downloads
 
-#### **Metadata**
+**Metadata**
 
 Checking the tool [ESEDatabaseView](https://www.nirsoft.net/utils/ese_database_view.html) you can find the container with the metadata of the downloads:
 
@@ -184,25 +187,25 @@ Checking the tool [ESEDatabaseView](https://www.nirsoft.net/utils/ese_database_v
 
 Getting the information of the column "ResponseHeaders" you can transform from hex that information and obtain the URL, the file type and the location of the downloaded file.
 
-#### Files
+**Files**
 
 Look in the path _**%userprofile%\Appdata\Roaming\Microsoft\Windows\IEDownloadHistory**_
 
-### **History**
+#### **History**
 
 The tool [BrowsingHistoryView](https://www.nirsoft.net/utils/browsing_history_view.html) can be used to read the history. But first you need to indicate the browser in advanced options and the location of the extracted history files.
 
-#### **Metadata**
+**Metadata**
 
 * ModifiedTime: First time a URL is found
 * AccessedTime: Last time
 * AccessCount: Number of times accessed
 
-#### **Files**
+**Files**
 
 Search in _**userprofile%\Appdata\Local\Microsoft\Windows\History\History.IE5**_ and _**userprofile%\Appdata\Local\Microsoft\Windows\History\Low\History.IE5**_
 
-### **Typed URLs**
+#### **Typed URLs**
 
 This information can be found inside the registry NTDUSER.DAT in the path:
 
@@ -211,7 +214,7 @@ This information can be found inside the registry NTDUSER.DAT in the path:
 * _**Software\Microsoft\InternetExplorer\TypedURLsTime**_
   * last time the URL was typed
 
-## Microsoft Edge
+### Microsoft Edge
 
 For analyzing Microsoft Edge artifacts all the **explanations about cache and locations from the previous section \(IE 11\) remain valid** with the only difference that the base locating in this case is _**%userprofile%\Appdata\Local\Packages**_ \(as can be observed in the following paths\):
 

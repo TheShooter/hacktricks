@@ -300,7 +300,7 @@ Note that you can also **take a look to this information reading the logs**.
 
 ### USB Logs
 
- [**usbrip**](https://github.com/snovvcrash/usbrip) is a small piece of software written in pure Python 3 which parses Linux log files \(`/var/log/syslog*` or `/var/log/messages*` depending on the distro\) for constructing USB event history tables.
+[**usbrip**](https://github.com/snovvcrash/usbrip) is a small piece of software written in pure Python 3 which parses Linux log files \(`/var/log/syslog*` or `/var/log/messages*` depending on the distro\) for constructing USB event history tables.
 
 It is interesting to **know all the USBs that have been used** and it will be more useful if you have an authorized list of USB to find "violation events" \(the use of USBs that aren't inside that list\).
 
@@ -387,7 +387,8 @@ Note that not all diffs can feature all types. For instance, diffs from the inde
 * [https://cdn.ttgtmedia.com/rms/security/Malware%20Forensics%20Field%20Guide%20for%20Linux%20Systems\_Ch3.pdf](https://cdn.ttgtmedia.com/rms/security/Malware%20Forensics%20Field%20Guide%20for%20Linux%20Systems_Ch3.pdf)
 * [https://www.plesk.com/blog/featured/linux-logs-explained/](https://www.plesk.com/blog/featured/linux-logs-explained/)
 
-<<<<<<< HEAD:forensics/basic-forensics-esp/linux-forensics.md
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:forensics/basic-forensics-esp/linux-forensics.md
+
 ## MBR - Master Boot Record
 
 The **MBR** occupies the **sector 0 of the disk** \(the first sector\) and it's used to indicate the partitions of the disc. This sector is essential to indicate the PC what and from where a partition should be mounted.  
@@ -752,4 +753,6 @@ Or you can mount it in your linux using `mount` command.
 [https://piazza.com/class\_profile/get\_resource/il71xfllx3l16f/inz4wsb2m0w2oz\#:~:text=The%20Ext2%20file%20system%20divides,lower%20average%20disk%20seek%20time.](https://piazza.com/class_profile/get_resource/il71xfllx3l16f/inz4wsb2m0w2oz#:~:text=The%20Ext2%20file%20system%20divides,lower%20average%20disk%20seek%20time.)
 
 =======
->>>>>>> upstream/master:forensics/basic-forensic-methodology/linux-forensics.md
+
+> > > > > > > upstream/master:forensics/basic-forensic-methodology/linux-forensics.md
+

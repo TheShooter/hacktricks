@@ -4,9 +4,12 @@ description: Checklist for privilege escalation in Linux
 
 # Checklist - Linux Privilege Escalation
 
-<<<<<<< HEAD
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
 ## **Best tool to look for Linux local privilege escalation vectors:** [**LinPEAS**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)\*\*\*\*
+
 =======
+
 {% hint style="danger" %}
 Do you use **Hacktricks every day**? Did you find the book **very** **useful**? Would you like to **receive extra help** with cybersecurity questions? Would you like to **find more and higher quality content on Hacktricks**?  
 [**Support Hacktricks through github sponsors**](https://github.com/sponsors/carlospolop) **so we can dedicate more time to it and also get access to the Hacktricks private group where you will get the help you need and much more!**
@@ -16,7 +19,8 @@ If you want to know about my **latest modifications**/**additions** or you have 
 If you want to **share some tricks with the community** you can also submit **pull requests** to [**https://github.com/carlospolop/hacktricks**](https://github.com/carlospolop/hacktricks) that will be reflected in this book and don't forget to **give ⭐** on **github** to **motivate** **me** to continue developing this book.
 
 ### **Best tool to look for Linux local privilege escalation vectors:** [**LinPEAS**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)\*\*\*\*
->>>>>>> upstream/master
+
+> > > > > > > upstream/master
 
 ## [System Information](privilege-escalation/#system-information)
 
@@ -103,11 +107,11 @@ If you want to **share some tricks with the community** you can also submit **pu
 * [ ] \*\*\*\*[**Sudo/SUID binary without path indicated**](privilege-escalation/#sudo-command-suid-binary-without-command-path)?
 * [ ] \*\*\*\*[**SUID binary specifying path**](privilege-escalation/#suid-binary-with-command-path)? Bypass
 * [ ] \*\*\*\*[**LD\_PRELOAD vuln**](privilege-escalation/#ld_preload)\*\*\*\*
-* [ ] \*\*\*\*[**Lack of .so library in SUID binary**](privilege-escalation/#suid-binary-so-injection) _\*\*_from a writable folder?
+* [ ] \*\*\*\*[**Lack of .so library in SUID binary**](privilege-escalation/#suid-binary-so-injection) \_\*\*\_from a writable folder?
 * [ ] \*\*\*\*[**SUDO tokens available**](privilege-escalation/#reusing-sudo-tokens)? [**Can you create a SUDO token**](privilege-escalation/#var-run-sudo-ts-less-than-username-greater-than)?
 * [ ] Can you [**read or modify sudoers files**](privilege-escalation/#etc-sudoers-etc-sudoers-d)?
 * [ ] Can you [**modify /etc/ld.so.conf.d/**](privilege-escalation/#etc-ld-so-conf-d)?
-* [ ] [**OpenBSD DOAS**](privilege-escalation/#doas) _\*\*_command
+* [ ] [**OpenBSD DOAS**](privilege-escalation/#doas) \_\*\*\_command
 
 ## [Capabilities](privilege-escalation/#capabilities)
 
@@ -154,11 +158,11 @@ If you want to **share some tricks with the community** you can also submit **pu
 * [ ] Can you [**abuse NFS to escalate privileges**](privilege-escalation/#nfs-privilege-escalation)?
 * [ ] Do you need to [**escape from a restrictive shell**](privilege-escalation/#escaping-from-restricted-shells)?
 
-If you want to **know** about my **latest modifications**/**additions** or you have **any suggestion for HackTricks or PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/) ****[**PEASS & HackTricks telegram group here**](https://t.me/peass), or **follow me on Twitter** [🐦](https://emojipedia.org/bird/)[**@carlospolopm**](https://twitter.com/carlospolopm)**.**  
-If you want to **share some tricks with the community** you can also submit **pull requests** to **\*\*\[**[https://github.com/carlospolop/hacktricks\*\*\]\(https://github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks**]%28https://github.com/carlospolop/hacktricks)\) **\*\*that will be reflected in this book.  
+If you want to **know** about my **latest modifications**/**additions** or you have **any suggestion for HackTricks or PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/) **\*\*\[**PEASS & HackTricks telegram group here**\]\(**[https://t.me/peass](https://t.me/peass)**\), or** follow me on Twitter ****[**🐦**](https://emojipedia.org/bird/)**\[**@carlospolopm**\]\(**[https://twitter.com/carlospolopm](https://twitter.com/carlospolopm)**\)**.  
+**If you want to** share some tricks with the community **you can also submit** pull requests **to** \*\*\[**\[**[https://github.com/carlospolop/hacktricks\*\*\]\(https://github.com/carlospolop/hacktricks\]\(https://github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks**]%28https://github.com/carlospolop/hacktricks]%28https://github.com/carlospolop/hacktricks)\]%28[https://github.com/carlospolop/hacktricks\)\](https://github.com/carlospolop/hacktricks%29\)\) **\*\*that will be reflected in this book.  
 Don't forget to** give ⭐ on the github\*\* to motivate me to continue developing this book.
 
-![](../.gitbook/assets/68747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6173736574732f696d672f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67%20%286%29%20%284%29%20%285%29.png)
+![](../.gitbook/assets/68747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6173736574732f696d672f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67%20%286%29%20%284%29%20%289%29.png)
 
 ​[**Buy me a coffee here**](https://www.buymeacoffee.com/carlospolop)\*\*\*\*
 
