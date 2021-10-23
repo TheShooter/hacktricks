@@ -295,7 +295,7 @@ hydra -V -f -L <userslist> -P <passwlist> rdp://<IP>
 ```bash
 msf> use auxiliary/scanner/redis/redis_login
 nmap --script redis-brute -p 6379 <IP>
-hydra –P /path/pass.txt <IP> redis
+hydra –P /path/pass.txt redis://<IP>:<PORT> # 6379 is the default
 ```
 
 #### Rexec
@@ -423,6 +423,7 @@ Check this out before trying to bruteforce a Hash.
 #### ZIP
 
 ```bash
+#sudo apt-get install fcrackzip 
 fcrackzip -u -D -p '/usr/share/wordlists/rockyou.txt' chall.zip
 ```
 
@@ -479,7 +480,7 @@ john jwt.john #It does not work with Kali-John
 
 ```bash
 Format:USUARIO:ID:HASH_LM:HASH_NT:::
-jhon --wordlist=/usr/share/wordlists/rockyou.txt --format=NT file_NTLM.hashes
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=NT file_NTLM.hashes
 hashcat -a 0 -m 1000 --username file_NTLM.hashes /usr/share/wordlists/rockyou.txt --potfile-path salida_NT.pot
 ```
 
@@ -525,7 +526,13 @@ ls /dev/mapper/ #You should find here the image mylucksopen
 mount /dev/mapper/mylucksopen /mnt
 ```
 
+<<<<<<< HEAD
 #### Mysql
+=======
+Another Luks BF tutorial: [http://blog.dclabs.com.br/2020/03/bruteforcing-linux-disk-encription-luks.html?m=1](http://blog.dclabs.com.br/2020/03/bruteforcing-linux-disk-encription-luks.html?m=1)
+
+### Mysql
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b
 
 ```bash
 #John hash format
@@ -533,7 +540,18 @@ mount /dev/mapper/mylucksopen /mnt
 dbuser:$mysqlna$112233445566778899aabbccddeeff1122334455*73def07da6fba5dcc1b19c918dbd998e0d1f3f9d
 ```
 
+<<<<<<< HEAD
 ### Tools
+=======
+### PGP/GPG Private key
+
+```bash
+gpg2john private_pgp.key #This will generate the hash, save it in a file
+john --wordlist=/usr/share/wordlists/rockyou.txt ./hash
+```
+
+## Tools
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b
 
 **Hash examples:** [https://openwall.info/wiki/john/sample-hashes](https://openwall.info/wiki/john/sample-hashes)
 

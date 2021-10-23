@@ -4,7 +4,11 @@
 
 You can ask if an IP is related to suspicious/malicious activities. Completely free.
 
+<<<<<<< HEAD
 ## \*\*\*\*[**BotScout**](http://botscout.com/api.htm)\*\*\*\*
+=======
+## [**BotScout**](http://botscout.com/api.htm)
+>>>>>>> 72cbd88461ed0e65da5433596050dd2ecb643f6b
 
 Check if the IP address is related to a bot that register accounts. It can also check usernames and emails. Initially free.
 
@@ -115,4 +119,6 @@ Search by domain and email and get if it was pwned and passwords. Commercial?
 [https://dnsdumpster.com/](https://dnsdumpster.com/)\(in a commercial tool?\)
 
 [https://www.netcraft.com/](https://www.netcraft.com/) \(in a commercial tool?\)
+
+[https://www.nmmapper.com/sys/tools/subdomainfinder/](https://www.nmmapper.com/) \(in a commercial tool?\)
 

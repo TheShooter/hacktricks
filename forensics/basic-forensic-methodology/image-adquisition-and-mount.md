@@ -27,7 +27,7 @@ ftkimager /dev/sdb evidence --e01 --case-number 1 --evidence-number 1 --descript
 
 ### EWF
 
-You can generate a dick image using the[ **ewf tools**](https://github.com/libyal/libewf).
+You can generate a dick image using the[** ewf tools**](https://github.com/libyal/libewf).
 
 ```bash
 ewfacquire /dev/sdb
@@ -50,7 +50,7 @@ ewfacquire /dev/sdb
 
 ### Several types
 
-In **Windows** you can try to use the free version of Arsenal Image Mounter \([https://arsenalrecon.com/downloads/](https://arsenalrecon.com/downloads/)\) to **mount the forensics image**.
+In **Windows** you can try to use the free version of Arsenal Image Mounter ([https://arsenalrecon.com/downloads/](https://arsenalrecon.com/downloads/)) to **mount the forensics image**.
 
 ### Raw
 
